@@ -1,0 +1,41 @@
+Relacionamentos(1:1)
+-UniversidadeReitor
+Ação:Fundir Reitor e Universidade
+-InstitutoDiretor
+Ação:Fundir Instituto e Diretor
+-DepartamentoChefe
+Ação:Fundir Departamento e Chefe.
+-CursoDepartamento
+Ação:Fundir Curso e Departamento.
+-CursoCoordenador
+Ação:Fundir Curso com Coordenador.
+-AlunoHistorico
+Ação:Fundir Aluno com Historico.
+
+Relacionamentos(1:N)
+-UniversidadeBolsa
+Ação:Adicionar chave estrangeira(numero_emec_univ) referenciando Universidade_Reitor em Bolsa.
+-DepartamentoInstituto
+Ação:Adicionar chave estrangeira(codigo_instituto) referenciando Instituto_Diretor na tabela Curso_Coordenador_Departamento_Chefe.
+-DepartamentoSecretaria
+Ação:Adicionar chave estrangeira(codigo_dept) referenciando Curso_Coordenador_Departamento_Chefe em Secretaria.
+-ProfessorDepartamento
+Ação:Adicionar chave estrangeira(fk_codigo_dept) referenciando Curso_Coordenador_Departamento_Chefe em Professor. Adicionar data_inicio_professor_departamento e horas_professor departamento em Professor.
+-AlunoCurso
+Ação:Adicionar chave estrangeira(fk_codigo_curso) referenciando Curso_Coordenador_Departamento_Chefe em Aluno. Adicionar data_entrada_aluno_curso.
+-CursoGrade
+Ação:Adicionar chave estrangeira(fk_codigo_curso) referenciando Curso_Coordenador_Departamento_Chefe em Grade.
+-DisciplinaTurma
+Ação:Adicionar chave estrangeira(fk_codigo_disciplina) referenciando Disciplina em Turma.
+-TurmaProfessor
+Ação:Adicionar chave estrangeira(fk_cpf_professor) referenciando Professor em Turma.
+-InstitutoUniversidade
+Ação:Adicionar chave estrangeira(fk_numero_emec_univ) referenciando Universidade_Reitor em Instituto_Diretor.
+
+Relacionamentos(N:N)
+-AlunoBolsa
+Ação:Criação de tabela Aluno_Bolsa com Primary Key composta por cpf_aluno e codigo_bolsa. Além disso, temos que cpf_aluno referencia Aluno_Historico e codigo_bolsa referencia Bolsa.
+-AlunoTurma
+Ação:Criação de tabela Aluno_Turma com Primary Key composta por cpf_aluno e codigo_turma. Além disso, temos que cpf_aluno referencia Aluno_Historico e codigo_turma referencia Turma.
+-GradeDisciplina
+Ação:Criação de tabela Grade_Disciplina com Primary Key composta por codigo_grade e codigo_disciplina. Além disso, temos que codigo_grade referencia Grade e codigo_disciplina referencia Disciplina.
