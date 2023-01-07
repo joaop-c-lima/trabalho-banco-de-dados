@@ -1,0 +1,147 @@
+@import "./table.css";
+@import "./form.css";
+
+body {
+  background-color: ghostwhite;
+  margin: 0;
+}
+
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+/*----------------------HEADER-----------------------*/
+
+.header_section {
+  background-color: #4165ad;
+}
+
+.header_div {
+  max-width: 1000px;
+  padding: 24px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+/* welcome */
+.welcome_container {
+  display: flex;
+  align-items: center;
+}
+
+.welcome_title {
+  font-size: 20px;
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.welcome_img {
+  max-width: 20px;
+  margin: 4px;
+}
+
+/* logo */
+.logo_img {
+  max-width: 160px;
+}
+
+/*----------------------FIM HEADER-----------------------*/
+
+/*---------------------- CONTENT -----------------------*/
+
+.content_section {
+  padding: 40px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* subcontent  */
+.subcontent {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 800px;
+}
+
+.subcontent_container {
+  background-color: lightcyan;
+  border: 1px solid lightblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 200px;
+  height: 100px;
+  border-radius: 5px;
+  padding: 12px;
+  box-shadow: 0px 10px 20px rgb(29 140 231 / 45%);
+  transition: 0.3s all;
+  text-decoration: none;
+}
+
+.subcontent_container:hover {
+  box-shadow: 0px 5px 5px rgb(29 140 231 / 45%);
+  cursor: pointer;
+  transform: scale(0.99);
+}
+
+.subcontent_img {
+  max-width: 50px;
+}
+
+.content_title {
+  margin: 0 0 12px;
+}
+
+.subcontent_title {
+  color: rgb(38, 38, 208);
+}
+
+/*----------------------FIM CONTENT -----------------------*/
+
+td,
+th {
+  text-align: center;
+}
+
+p.new-register-title {
+  margin: 12px auto;
+  font-size: 18px;
+  display: flex;
+  font-weight: bold;
+  width: max-content;
+}
+
+/*  BUTTON VOLTAR */
+
+.back_container {
+  display: flex;
+  margin: 12px 64px 0;
+}
+
+.back_container a {
+  text-decoration: none;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  color: blue;
+  font-weight: 600;
+}
+
+.back_container img {
+  max-width: 16px;
+  transition: 0.2s all;
+  display: block;
+}
+
+.back_container:hover a {
+  color: rgb(0, 0, 107);
+}
+
+.back_container:hover img {
+  transform: translateX(-10px);
+}
