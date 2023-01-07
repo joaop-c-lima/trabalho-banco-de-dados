@@ -2,9 +2,9 @@
 
 ## Resumo 📜
 
-    Siga Plus é um projeto criado na disciplina de Banco de Dados da UFJF, com o objetivo de modelar, projetar e desenvolver uma plataforma para cadastro de informações da faculdade. Como por exemplo cadastro de alunos,professores, cursos, disciplinas, reitores, coordenadores e etc.
+&emsp; Siga Plus é um projeto criado na disciplina de Banco de Dados da UFJF, com o objetivo de modelar, projetar e desenvolver uma plataforma para cadastro de informações da faculdade. Como por exemplo cadastro de alunos,professores, cursos, disciplinas, reitores, coordenadores e etc.
 
-    Após a criação do modelo lógico, modelo relacional, algebra relacional, foi desenvolvido uma interface utilizando HTML e PHP, como forma de um protótipo que contém 4 telas diferenes( Alunos, Professore, Curso, Curso_Aluno) que ilustra como ficaria o projeto final.
+&emsp; Após a criação do modelo lógico, modelo relacional, algebra relacional, foi desenvolvido uma interface utilizando HTML e PHP, como forma de um protótipo que contém 4 telas diferenes( Alunos, Professore, Curso, Curso_Aluno) que ilustra como ficaria o projeto final.
 
 ---
 
