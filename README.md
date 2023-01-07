@@ -18,7 +18,7 @@
 
 &emsp; Para criar um servidor local que hospede o banco de dados e o projeto PHP, optamos por utilizar o [XAMPP](https://www.apachefriends.org/pt_br/index.html).
 
-&emsp; Com o XAMPP instalado no computador, basta iniciar as opções Apache e Mysql, apertando nos seus respectivos botões 'Start': <br><br> ![xampp](sigaplus\img\readme\IMG_XAMPP.png)
+&emsp; Com o XAMPP instalado no computador, basta iniciar as opções Apache e Mysql, apertando nos seus respectivos botões 'Start': <br><br> ![xampp](/sigaplus/img/readme/IMG_XAMPP.png)
 
 <br>
 
@@ -26,7 +26,7 @@
 
 &emsp; Com essas duas opções ativadas no XAMPP, podemos acessar o banco de dados local através da seguinte url: http://localhost/phpmyadmin/
 
-&emsp; Após carregar a tela do phpMyAdmin, basta selecionar a opção 'Novo' e inserir o nome do banco de dados '**sigaplus**' no input marcado na imagem abaixo. Feito isso, basta clicar no botão 'Criar' <br><br> ![xampp](sigaplus\img\readme\IMG_PHPMYADMIN.png)
+&emsp; Após carregar a tela do phpMyAdmin, basta selecionar a opção 'Novo' e inserir o nome do banco de dados '**sigaplus**' no input marcado na imagem abaixo. Feito isso, basta clicar no botão 'Criar' <br><br> ![banco](sigaplus/img/readme/IMG_PHPMYADMIN.png)
 
 <br>
 
@@ -46,7 +46,7 @@
 &emsp; Agora que já temos o banco de dados funcionando, podemos hospedar o projeto com dois passos:
 
 &emsp; O primeiro passo é procurar no computador a pasta **htdocs** criada na instalação do XAMPP e após encontrar, o segundo passo é colocar o projeto [sigaplus](./sigaplus/) (presente nesse repositório) dentro dessa pasta htdocs: <br><br>
-![xampp](sigaplus\img\readme\IMG_HTDOCS.png)
+![xampp](sigaplus/img/readme/IMG_HTDOCS.png)
 
 <br>
 
@@ -54,6 +54,6 @@
 
 &emsp; Com os 4 passos anteriores realizados, o projeto já está funcionando em localhost. Acessando a url `localhost/:nome_da_pasta:` . No caso, como a pasta se chama sigaplus, o projeto está hospedado localmente nesse link: http://localhost/sigaplus/
 <br><br>
-![xampp](sigaplus\img\readme\IMG_PROJETO.png)
+![projeto](sigaplus/img/readme/IMG_PROJETO.png)
 
 <br>
