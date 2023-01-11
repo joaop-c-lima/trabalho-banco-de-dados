@@ -31,7 +31,7 @@ include('conexao_db.php');
             <th>Nome</th>
             <th>CPF</th>
             <th>Idade</th>
-            <th>Cod. Curso</th>
+            <th>Curso</th>
             <th>Data Entrada</th>
             <th>Matrícula</th>
             <th>Sexo</th>
@@ -81,23 +81,23 @@ include('conexao_db.php');
       <p class="new-register-title"> Insira os dados do novo aluno: </p>
    <form class="form" action="insert_db.php?table=aluno" method="post">
          <div> 
-            <label> CPF </label> <input type="text" pattern="\d*" name="pk_cpf_aluno" placeholder="13567674782" minlength="11" maxlength="11">
+            <label> CPF </label> <input type="text" pattern="\d*" name="pk_cpf_aluno" placeholder="13567674782" minlength="11" maxlength="11" required>
          </div> 
          <div>
-            <label>Nome </label> <input type="text" name="nome_aluno" placeholder="Savio Teixeira">
+            <label>Nome </label> <input type="text" name="nome_aluno" placeholder="Savio Teixeira" required>
          </div>
          <div>
-          <label>Idade </label> <input type="number" name="idade_aluno" min="0" max="200" placeholder="20">
+          <label>Idade </label> <input type="number" name="idade_aluno" min="0" max="200" placeholder="20" required>
          </div>
          <div>
           <label>Cod. Curso </label> 
-          <select name="fk_codigo_curso">
+          <select name="fk_codigo_curso" required>
             <?php
                $tableName="curso";
                $columns= ['pk_codigo_curso', 'nome_curso'];
                $orderBy = "nome_curso";
                $fetchData = fetch_data($mysqli, $tableName, $columns, $orderBy);
-               if(is_array($fetchData)){     
+               if(is_array($fetchData)){
                   foreach($fetchData as $data){
                      echo  "<option value=".$data['pk_codigo_curso'].">".$data['nome_curso']."</option>";
                   }
@@ -107,10 +107,10 @@ include('conexao_db.php');
           
          </div>
          <div>
-            <label>Data Entrada </label> <input type="date" placeholder="01/01/2001" required pattern="\d{4}-\d{2}-\d{2}"  name="data_entrada_aluno_curso">
+            <label>Data Entrada </label> <input type="date" placeholder="01/01/2001" required pattern="\d{4}-\d{2}-\d{2}"  name="data_entrada_aluno_curso" required>
          </div>
          <div>
-            <label>Matrícula </label> <input type="text" name="matricula_aluno" placeholder="202035038" minlength="5" maxlength="20">
+            <label>Matrícula </label> <input type="text" name="matricula_aluno" placeholder="202035038" minlength="5" maxlength="20" required>
          </div>
          <div>
                <label>Sexo </label> <select name="sexo_aluno">
@@ -119,16 +119,29 @@ include('conexao_db.php');
                </select>
          </div>
          <div>
-            <label>Login </label> <input type="text" name="login_aluno" placeholder="saviochwt" minlength="5" maxlength="20">
+            <label>Login </label> <input type="text" name="login_aluno" placeholder="saviochwt" minlength="7" maxlength="20" required>
          </div>
          <div>
-            <label>Senha </label> <input type="text" name="senha_aluno" placeholder="coxinha1234" minlength="5" maxlength="20">
+            <label>Senha </label> <input type="text" name="senha_aluno" placeholder="coxinha1234" minlength="5" maxlength="20" required>
          </div>
          <div>
-            <label>Formação </label> <input type="text" name="formacao_aluno" placeholder="ENSINO MEDIO" minlength="5" maxlength="20">
+            <label>Formação </label>
+               <select name="formacao_aluno">
+                  <option value="ENSINO MEDIO" selected>Ensino Médio</option>
+                  <option value="TECNÓLOGO">Tecnólogo</option>
+                  <option value="BACHARELADO">Bacharelado</option>
+                  <option value="LICENCIATURA">Licenciatura</option>
+                  <option value="MESTRADO">Mestrado</option>
+                  <option value="DOUTORADO">Doutorado</option>
+                  <option value="PÓS-DOUTORADO">Pós-doutorado</option>
+               </select>
          </div>
          <div>
-            <label>Status </label> <input type="text" name="status_matricula_aluno" placeholder="ATIVO" minlength="5" maxlength="20">
+            <label>Status Matrícula</label>
+               <select name="status_matricula_aluno">
+                  <option value="ATIVA">Ativa</option>
+                  <option value="INATIVA">Inativa</option>
+               </select>
          </div>
          <button type ="submit"> Enviar</button>
    </form>

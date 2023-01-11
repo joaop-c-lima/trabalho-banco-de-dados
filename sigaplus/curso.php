@@ -75,10 +75,10 @@ include('conexao_db.php');
       <p class="new-register-title"> Insira os dados do novo curso: </p>
    <form class="form" action="insert_db.php?table=curso" method="post">
          <div>
-            <label>Nome </label> <input type="text" name="nome_curso" placeholder="Ciência da Computação">
+            <label>Nome </label> <input type="text" name="nome_curso" placeholder="Ciência da Computação" required>
          </div>
          <div>
-          <label> Cod. Curso </label> <input type="number" name="pk_codigo_curso" min="0" max="300" placeholder="20">
+          <label> Cod. Curso </label> <input type="number" name="pk_codigo_curso" min="0" max="300" placeholder="20" required>
          </div>
          <div>
           <label> Departamento </label> 
@@ -114,7 +114,7 @@ include('conexao_db.php');
          </select> 
          </div>
          <div>
-            <label>Qtd. Semestres </label> <input type="number" name="qtd_semestres_curso" placeholder="8" min="0" max="20">
+            <label>Qtd. Semestres </label> <input type="number" name="qtd_semestres_curso" placeholder="8" min="0" max="17" required>
          </div>
          <div>
             <label> Turno </label>

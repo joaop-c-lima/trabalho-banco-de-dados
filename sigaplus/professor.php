@@ -80,17 +80,17 @@ include('conexao_db.php');
       <p class="new-register-title"> Insira os dados do novo professor: </p>
    <form class="form" action="insert_db.php?table=professor" method="post">
          <div> 
-            <label> CPF </label> <input type="text" pattern="\d*" name="pk_cpf_professor" placeholder="13567674782" minlength="11" maxlength="11">
+            <label> CPF </label> <input type="text" pattern="\d*" name="pk_cpf_professor" placeholder="13567674782" minlength="11" maxlength="11" required>
          </div> 
          <div>
-            <label>Nome </label> <input type="text" name="nome_professor" placeholder="Savio Teixeira">
+            <label>Nome </label> <input type="text" name="nome_professor" placeholder="Savio Teixeira" required>
          </div>
          <div>
-          <label>Idade </label> <input type="number" name="idade_professor" min="0" max="200" placeholder="20">
+          <label>Idade </label> <input type="number" name="idade_professor" min="0" max="200" placeholder="20" required>
          </div>
          <div>
           <label>Cod. Curso </label> 
-          <select name="fk_codigo_dept">
+          <select name="fk_codigo_dept" required>
             <?php
                $tableName="departamento";
                $columns= ['pk_codigo_dept', 'nome_dept'];
@@ -106,28 +106,33 @@ include('conexao_db.php');
           
          </div>
          <div>
-            <label>Data Entrada </label> <input type="date" placeholder="01/01/2001" required pattern="\d{4}-\d{2}-\d{2}"  name="data_inicio_professor_departamento">
+            <label>Data Entrada </label> <input type="date" placeholder="01/01/2001" required pattern="\d{4}-\d{2}-\d{2}"  name="data_inicio_professor_departamento" required>
          </div>
          <div>
-            <label>Código Prof. </label> <input type="text" name="codigo_professor" placeholder="2030" minlength="3" maxlength="20">
+            <label>Código Prof. </label> <input type="text" name="codigo_professor" placeholder="2030" minlength="3" maxlength="20" required>
          </div>
          <div>
-               <label>Sexo </label> <select name="sexo_professor">
+               <label>Sexo </label> <select name="sexo_professor" required>
                   <option value="M">Masculino</option>
                   <option value="F">Feminino</option>
                </select>
          </div>
          <div>
-            <label>Login </label> <input type="text" name="login_professor" placeholder="saviochwt" minlength="5" maxlength="20">
+            <label>Login </label> <input type="text" name="login_professor" placeholder="saviochwt" minlength="7" maxlength="20" required>
          </div>
          <div>
-            <label>Senha </label> <input type="text" name="senha_professor" placeholder="coxinha1234" minlength="5" maxlength="20">
+            <label>Senha </label> <input type="text" name="senha_professor" placeholder="coxinha1234" minlength="5" maxlength="20" required>
          </div>
          <div>
-            <label>Formação </label> <input type="text" name="formacao_professor" placeholder="Doutorado" minlength="5" maxlength="20">
+            <label>Formação </label> 
+            <select name="formacao_professor" required>
+               <option value="MESTRADO">Mestrado</option>
+               <option value="DOUTORADO">Doutorado</option>
+               <option value="POS-DOUTORADO">Pós-doutorado</option>
+            </select>
          </div>
          <div>
-            <label>Horas no dept. </label> <input type="number" name="horas_professor_departamento" placeholder="40" min="0" max="200">
+            <label>Horas no dept. </label> <input type="number" name="horas_professor_departamento" placeholder="40" min="0" max="200" required>
          </div>
          <button type ="submit"> Enviar</button>
    </form>
