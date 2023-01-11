@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Jan-2023 às 19:38
+-- Tempo de geração: 11-Jan-2023 às 19:55
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.2.0
 
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `aluno` (
   `pk_cpf_aluno` varchar(11) NOT NULL,
   `fk_codigo_curso` varchar(10) DEFAULT NULL,
-  `idade_aluno` int(11) DEFAULT NULL,
+  `idade_aluno` int(11) DEFAULT NULL CHECK (`idade_aluno` > 18),
   `sexo_aluno` char(1) DEFAULT NULL,
-  `senha_aluno` varchar(20) NOT NULL,
+  `senha_aluno` varchar(20) NOT NULL CHECK (octet_length(`senha_aluno`) > 7),
   `login_aluno` varchar(20) NOT NULL,
   `nome_aluno` varchar(50) NOT NULL,
   `data_entrada_aluno_curso` date DEFAULT NULL,
@@ -178,7 +178,7 @@ INSERT INTO `aluno_bolsa` (`pk_fk_codigo_bolsa`, `pk_fk_cpf_aluno`, `data_cadast
 CREATE TABLE `aluno_turma` (
   `pk_fk_cpf_aluno` varchar(11) NOT NULL,
   `pk_fk_codigo_turma` varchar(10) NOT NULL,
-  `nota_aluno` float NOT NULL
+  `nota_aluno` float NOT NULL CHECK (`nota_aluno` >= 0 and `nota_aluno` <= 100)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -331,7 +331,7 @@ CREATE TABLE `chefe` (
   `pk_cpf_chefe` varchar(11) NOT NULL,
   `idade_chefe` int(11) DEFAULT NULL,
   `sexo_chefe` char(1) DEFAULT NULL,
-  `senha_chefe` varchar(20) NOT NULL,
+  `senha_chefe` varchar(20) NOT NULL CHECK (octet_length(`senha_chefe`) > 7),
   `login_chefe` varchar(20) NOT NULL,
   `nome_chefe` varchar(50) NOT NULL,
   `codigo_chefe` varchar(10) NOT NULL,
@@ -373,7 +373,7 @@ CREATE TABLE `coordenador` (
   `pk_cpf_coordenador` varchar(11) NOT NULL,
   `idade_coordenador` int(11) DEFAULT NULL,
   `sexo_coordenador` varchar(1) DEFAULT NULL,
-  `senha_coordenador` varchar(50) NOT NULL,
+  `senha_coordenador` varchar(50) NOT NULL CHECK (octet_length(`senha_coordenador`) > 7),
   `login_coordenador` varchar(50) NOT NULL,
   `nome_coordenador` varchar(100) NOT NULL,
   `id_coordenador` varchar(10) NOT NULL,
@@ -416,7 +416,7 @@ CREATE TABLE `curso` (
   `fk_codigo_dept` varchar(10) DEFAULT NULL,
   `fk_cpf_coordenador` varchar(11) DEFAULT NULL,
   `nome_curso` varchar(50) NOT NULL,
-  `qtd_semestres_curso` int(11) NOT NULL,
+  `qtd_semestres_curso` int(11) NOT NULL CHECK (`qtd_semestres_curso` > 0 and `qtd_semestres_curso` < 17),
   `turno_curso` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -498,9 +498,9 @@ INSERT INTO `departamento` (`pk_codigo_dept`, `fk_cpf_chefe`, `fk_codigo_institu
 
 CREATE TABLE `diretor` (
   `pk_cpf_diretor` varchar(11) NOT NULL,
-  `idade_diretor` int(11) DEFAULT NULL,
+  `idade_diretor` int(11) DEFAULT NULL CHECK (`idade_diretor` > 35),
   `sexo_diretor` char(1) DEFAULT NULL,
-  `senha_diretor` varchar(20) NOT NULL,
+  `senha_diretor` varchar(20) NOT NULL CHECK (octet_length(`senha_diretor`) > 7),
   `login_diretor` varchar(20) NOT NULL,
   `nome_diretor` varchar(50) DEFAULT NULL,
   `numero_diretor` varchar(10) NOT NULL,
@@ -660,63 +660,6 @@ CREATE TABLE `historico` (
 --
 
 INSERT INTO `historico` (`pk_numero_historico`, `fk_cpf_aluno`, `IRA_historico`) VALUES
-(NULL, '92919720830', 0),
-(NULL, '16364641861', 0),
-(NULL, '95281355889', 0),
-(NULL, '68408839070', 0),
-(NULL, '80636883721', 0),
-(NULL, '17613096457', 0),
-(NULL, '56666439391', 0),
-(NULL, '30469116477', 0),
-(NULL, '15154919215', 0),
-(NULL, '31423757093', 0),
-(NULL, '39911048944', 0),
-(NULL, '55129417480', 0),
-(NULL, '48688428894', 0),
-(NULL, '46176017855', 0),
-(NULL, '33288785130', 0),
-(NULL, '81575994181', 0),
-(NULL, '21100392635', 0),
-(NULL, '40183164989', 0),
-(NULL, '65122154895', 0),
-(NULL, '33545169141', 0),
-(NULL, '19110461287', 0),
-(NULL, '91184799216', 0),
-(NULL, '35457562761', 0),
-(NULL, '12526987413', 0),
-(NULL, '98393556859', 0),
-(NULL, '58465332121', 0),
-(NULL, '86257568744', 0),
-(NULL, '49506349941', 0),
-(NULL, '78096638264', 0),
-(NULL, '19433608180', 0),
-(NULL, '20443968703', 0),
-(NULL, '74171403030', 0),
-(NULL, '95553509442', 0),
-(NULL, '13953720476', 0),
-(NULL, '47908483761', 0),
-(NULL, '62755241729', 0),
-(NULL, '38791957857', 0),
-(NULL, '75234717356', 0),
-(NULL, '30953498877', 0),
-(NULL, '46975821036', 0),
-(NULL, '55804467840', 0),
-(NULL, '95666947353', 0),
-(NULL, '42533516988', 0),
-(NULL, '76900345962', 0),
-(NULL, '42493222848', 0),
-(NULL, '89635388139', 0),
-(NULL, '18138709673', 0),
-(NULL, '69984165846', 0),
-(NULL, '75702067933', 0),
-(NULL, '13045359472', 0),
-(NULL, '16195138842', 0),
-(NULL, '97020567420', 0),
-(NULL, '73812505697', 0),
-(NULL, '61063609222', 0),
-(NULL, '72451907074', 0),
-(NULL, '83286713532', 0),
-(NULL, '25007836081', 0),
 ('5696301', '92919720830', 81.99),
 ('3089951', '16364641861', 52.49),
 ('5688968', '95281355889', 62.11),
@@ -811,11 +754,11 @@ CREATE TABLE `professor` (
   `fk_codigo_dept` varchar(10) DEFAULT NULL,
   `sexo_professor` char(1) DEFAULT NULL,
   `idade_professor` int(11) DEFAULT NULL,
-  `senha_professor` varchar(20) NOT NULL,
+  `senha_professor` varchar(20) NOT NULL CHECK (octet_length(`senha_professor`) > 7),
   `login_professor` varchar(20) NOT NULL,
   `nome_professor` varchar(50) NOT NULL,
   `codigo_professor` varchar(10) NOT NULL,
-  `formacao_professor` varchar(50) DEFAULT NULL,
+  `formacao_professor` varchar(50) DEFAULT NULL CHECK (`formacao_professor` in ('MESTRADO','DOUTORADO')),
   `data_inicio_professor_departamento` date DEFAULT NULL,
   `horas_professor_departamento` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -868,7 +811,7 @@ CREATE TABLE `reitor` (
   `pk_cpf_reitor` varchar(11) NOT NULL,
   `idade_reitor` int(11) DEFAULT NULL,
   `sexo_reitor` char(1) DEFAULT NULL,
-  `senha_reitor` varchar(20) NOT NULL,
+  `senha_reitor` varchar(20) NOT NULL CHECK (octet_length(`senha_reitor`) > 7),
   `login_reitor` varchar(20) NOT NULL,
   `nome_reitor` varchar(50) DEFAULT NULL,
   `codigo_reitor` varchar(10) NOT NULL,
@@ -894,7 +837,7 @@ CREATE TABLE `secretaria` (
   `fk_codigo_dept` varchar(10) DEFAULT NULL,
   `idade_secretaria` int(11) DEFAULT NULL,
   `sexo_secretaria` char(2) DEFAULT NULL,
-  `senha_secretaria` varchar(20) NOT NULL,
+  `senha_secretaria` varchar(20) NOT NULL CHECK (octet_length(`senha_secretaria`) > 7),
   `login_secretaria` varchar(20) NOT NULL,
   `nome_secretaria` varchar(30) DEFAULT NULL,
   `registro_secretaria` varchar(10) NOT NULL,
@@ -932,7 +875,7 @@ CREATE TABLE `turma` (
   `fk_cpf_professor` varchar(11) DEFAULT NULL,
   `fk_codigo_disciplina` varchar(10) DEFAULT NULL,
   `turno_turma` varchar(20) DEFAULT NULL,
-  `capacidade_turma` int(11) NOT NULL
+  `capacidade_turma` int(11) NOT NULL CHECK (`capacidade_turma` > 9 and `capacidade_turma` < 101)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
